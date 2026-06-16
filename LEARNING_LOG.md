@@ -57,9 +57,7 @@ A public log of my hands-on experience with Linux systems management, CLI admini
     * `w` = Write
     * `x` = Execute (Required to run a script or program)
 
-### 3. Execution & Pathing Concept
-* **Executing a Script:** Adding execute permissions (`chmod u+x script.sh`) is not enough to run it. You must tell the OS exactly where the file is.
-* **`./` (Dot-Slash):** Typing `./script.sh` explicitly tells the system: *"Execute the file named script.sh located exactly in this current directory."*
+
 **Key Technical Takeaway:**
 
 * **File Type Indicators:** When analyzing a long format (`-l`) output, the absolute first character dictates the system object type. A dash (`-`) indicates a standard file (text, image, or binary), while a `d` indicates a directory folder.

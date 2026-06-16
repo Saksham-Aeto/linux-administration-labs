@@ -56,7 +56,22 @@ A public log of my hands-on experience with Linux systems management, CLI admini
     * `r` = Read
     * `w` = Write
     * `x` = Execute (Required to run a script or program)
+---
 
+## Date: 2026-06-16 | Lab: The Linux Filesystem Hierarchy
+
+### Core Directories (The "Filing Cabinet")
+* **`/` (Root):** The absolute base of the filesystem. Everything branches from here.
+* **`/etc` (Configuration):** System-wide configuration files (e.g., `/etc/passwd` for user info). If you are changing a server setting, you are editing a file in here.
+* **`/var` (Variable Data):** Files that change frequently. Most importantly, **`/var/log`**, which holds the system error and activity logs. 
+* **`/home`:** Personal directories for regular users. 
+* **`/bin` & `/sbin` (Binaries):** Where the actual executable programs live. When you type commands like `ls` or `pwd`, the system is running a program located in `/bin`.
+* **`/dev` (Devices):** Proves the rule that "Everything is a file." Hardware devices (hard drives, webcams) are represented as files here.
+* **`/tmp` (Temporary):** The system's scratchpad. Often completely wiped on a reboot. 
+
+### Symbolic Links (Symlinks)
+* Denoted by an `l` in the `ls -l` output (e.g., `lrwxrwxrwx`).
+* Acts as a shortcut pointing to another file or directory (`fileA -> fileB`).
 
 **Key Technical Takeaway:**
 

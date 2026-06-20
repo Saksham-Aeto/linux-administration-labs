@@ -77,3 +77,53 @@ A public log of my hands-on experience with Linux systems management, CLI admini
 
 * **File Type Indicators:** When analyzing a long format (`-l`) output, the absolute first character dictates the system object type. A dash (`-`) indicates a standard file (text, image, or binary), while a `d` indicates a directory folder.
 * **Targeted Execution:** You do not need to stand inside a room to see what is in it. Executing commands against specific paths saves time and prevents unnecessary navigation operations.
+Lab Report: Linux Access Control & Identity Management
+Date: 2026-06-20
+Module: User Permissions and Ownership
+
+1. File Permission Modes (chmod)
+The Linux permission system is a bitmask applied to an Inode. When you interact with chmod, you are not just toggling switches; you are modifying the metadata bits of the file system.
+
+The Bitwise Logic Table
+Permission	Symbolic	Octal Value	System Capability
+Read	r	4	Allows viewing file content/listing directory
+Write	w	2	Allows modifying, deleting, or renaming
+Execute	x	1	Allows running binaries or entering directory
+
+The chmod Syntax Architecture
+chmod [SET][ACTION][PERMISSION] [FILE]
+
+The SET (The Target): Who are we changing? u (owner), g (group), o (others), a (all).
+
+The ACTION (The Operator): How do we change it? + (add), - (remove), = (set exact).
+
+The PERMISSION (The Access): What are we changing? r, w, or x.
+
+Profound Takeaway: The x Bit
+Files: The x bit allows the OS kernel to load the file into memory as a process. Without this, the shell will reject the execution request with Permission denied, regardless of your ownership status.
+
+Directories: The x bit is the "key" to the room. It allows you to enter a directory (using cd). Without x, you cannot access any file inside that directory, even if you have read access.
+
+2. File Ownership (chown)
+Ownership defines the Security Principal. In Linux, every file is owned by a UID (User ID) and a GID (Group ID). The name root or sysadmin is merely an alias for these numerical IDs.
+
+The Hierarchy of Authority
+The Owner: Can change permissions and modify the file.
+
+The root (UID 0): The absolute sovereign. Can override any permission bit on the system.
+
+The Others: Bound strictly by the permission bits defined for them.
+
+Deep Dive: Ownership Constraints
+Why can't I chown my own files to someone else?
+This is a hard-coded security feature of the Linux kernel to prevent "quota theft" and "permission escalation." If you could give your files to another user, you could trick them into executing malicious code while they assume the blame for the file's content.
+
+The sudo ./file paradox:
+If you chown a file to root, you lose the ability to edit it as a normal user. Executing it with sudo works because sudo elevates your process identity to UID 0 (root) for that execution cycle.
+
+Engineering Reflection
+The "Permission Denied" diagnostic: * Is it a Permission issue? (Check ls -l and adjust chmod).
+
+Is it an Ownership issue? (Check if the file belongs to root or another user).
+
+Is it a Path issue? (Remember: ./ is required to execute files in your current directory).

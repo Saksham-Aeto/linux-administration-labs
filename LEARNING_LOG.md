@@ -1,4 +1,4 @@
-all the notes go here.
+
 # Linux Administration & Infrastructure Labs
 
 A public log of my hands-on experience with Linux systems management, CLI administration, and directory structures.
@@ -136,15 +136,15 @@ Chowning a file to root means you lose edit access as a normal user. Running it 
 
 ### Core Commands Mastered:
 
-cat - Concatenate. Used to quickly view the full contents of small files.
+**cat** - Concatenate. Used to quickly view the full contents of small files.
 Syntax: cat [OPTIONS] [FILE]
 
-head - Views only the top portion of a file.
-tail - Views only the bottom portion of a file.
-Both use -n to specify exact number of lines to view.
+**head** - Views only the top portion of a file.
+**tail** - Views only the bottom portion of a file.
+Both use* -n *to specify exact number of lines to view.
 Syntax: head -n number_of_lines filename
 
-cp - Copy. Creates a copy of a file from a source to a destination.
+**cp** - Copy. Creates a copy of a file from a source to a destination.
 Syntax: cp [OPTIONS] SOURCE DESTINATION
 
 ### Key Technical Takeaway:

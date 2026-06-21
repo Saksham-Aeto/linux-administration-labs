@@ -77,53 +77,82 @@ A public log of my hands-on experience with Linux systems management, CLI admini
 
 * **File Type Indicators:** When analyzing a long format (`-l`) output, the absolute first character dictates the system object type. A dash (`-`) indicates a standard file (text, image, or binary), while a `d` indicates a directory folder.
 * **Targeted Execution:** You do not need to stand inside a room to see what is in it. Executing commands against specific paths saves time and prevents unnecessary navigation operations.
-Lab Report: Linux Access Control & Identity Management
-Date: 2026-06-20
-Module: User Permissions and Ownership
+Here's the refined version ready to paste:
 
-1. File Permission Modes (chmod)
-The Linux permission system is a bitmask applied to an Inode. When you interact with chmod, you are not just toggling switches; you are modifying the metadata bits of the file system.
+---
 
-The Bitwise Logic Table
-Permission	Symbolic	Octal Value	System Capability
-Read	r	4	Allows viewing file content/listing directory
-Write	w	2	Allows modifying, deleting, or renaming
-Execute	x	1	Allows running binaries or entering directory
+## Date: 2026-06-20 | Lab: Access Control & Identity Management
 
-The chmod Syntax Architecture
-chmod [SET][ACTION][PERMISSION] [FILE]
+### 1. File Permission Modes (chmod)
 
-The SET (The Target): Who are we changing? u (owner), g (group), o (others), a (all).
+The Linux permission system modifies the metadata bits of a file stored in its Inode. chmod does not toggle switches — it rewrites access rules at the filesystem level.
 
-The ACTION (The Operator): How do we change it? + (add), - (remove), = (set exact).
+| Permission | Symbolic | Octal Value | Capability |
+|------------|----------|-------------|------------|
+| Read | r | 4 | View file contents or list directory |
+| Write | w | 2 | Modify, delete, or rename |
+| Execute | x | 1 | Run binaries or enter a directory |
 
-The PERMISSION (The Access): What are we changing? r, w, or x.
+**Syntax:** chmod [SET][ACTION][PERMISSION] [FILE]
 
-Profound Takeaway: The x Bit
-Files: The x bit allows the OS kernel to load the file into memory as a process. Without this, the shell will reject the execution request with Permission denied, regardless of your ownership status.
+- SET — who: u (owner), g (group), o (others), a (all)
+- ACTION — how: + (add), - (remove), = (set exact)
+- PERMISSION — what: r, w, or x
 
-Directories: The x bit is the "key" to the room. It allows you to enter a directory (using cd). Without x, you cannot access any file inside that directory, even if you have read access.
+**Profound Takeaway — The x Bit:**
 
-2. File Ownership (chown)
-Ownership defines the Security Principal. In Linux, every file is owned by a UID (User ID) and a GID (Group ID). The name root or sysadmin is merely an alias for these numerical IDs.
+On a file — x allows the kernel to load it into memory as a process. Without it, execution is rejected with Permission denied regardless of ownership.
 
-The Hierarchy of Authority
-The Owner: Can change permissions and modify the file.
+On a directory — x is the key to the room. Without it you cannot cd into the directory even if you can see it exists.
 
-The root (UID 0): The absolute sovereign. Can override any permission bit on the system.
+---
 
-The Others: Bound strictly by the permission bits defined for them.
+### 2. File Ownership (chown)
 
-Deep Dive: Ownership Constraints
-Why can't I chown my own files to someone else?
-This is a hard-coded security feature of the Linux kernel to prevent "quota theft" and "permission escalation." If you could give your files to another user, you could trick them into executing malicious code while they assume the blame for the file's content.
+Every file is owned by a UID and GID. Names like root or sysadmin are just aliases for numerical IDs.
 
-The sudo ./file paradox:
-If you chown a file to root, you lose the ability to edit it as a normal user. Executing it with sudo works because sudo elevates your process identity to UID 0 (root) for that execution cycle.
+**Hierarchy of Authority:**
+- Owner — can change permissions and modify the file
+- root (UID 0) — absolute authority, overrides any permission
+- Others — bound strictly by permission bits assigned to them
 
-Engineering Reflection
-The "Permission Denied" diagnostic: * Is it a Permission issue? (Check ls -l and adjust chmod).
+**Why can't you chown your files to someone else?**
+Hard coded kernel security. It prevents quota theft and permission escalation — you could otherwise trick another user into executing malicious code under their identity.
 
-Is it an Ownership issue? (Check if the file belongs to root or another user).
+**The sudo ./file paradox:**
+Chowning a file to root means you lose edit access as a normal user. Running it with sudo works because sudo elevates your process to UID 0 for that execution cycle only.
 
-Is it a Path issue? (Remember: ./ is required to execute files in your current directory).
+---
+
+### Engineering Reflection — Permission Denied Diagnostic
+
+1. Permission issue? — check ls -l and adjust with chmod
+2. Ownership issue? — check if file belongs to root or another user
+3. Path issue? — remember ./ is required to execute files in your current directory
+
+---
+
+## Date: 2026-06-21 | Lab: File Viewing & File Operations
+
+### Core Commands Mastered:
+
+cat - Concatenate. Used to quickly view the full contents of small files.
+Syntax: cat [OPTIONS] [FILE]
+
+head - Views only the top portion of a file.
+tail - Views only the bottom portion of a file.
+Both use -n to specify exact number of lines to view.
+Syntax: head -n number_of_lines filename
+
+cp - Copy. Creates a copy of a file from a source to a destination.
+Syntax: cp [OPTIONS] SOURCE DESTINATION
+
+### Key Technical Takeaway:
+
+~ (tilde) is a shortcut that always points to your home directory (/home/yourusername), not the root directory (/). So cd ~/Documents navigates to your personal Documents folder, not a system level one.
+
+### Lab Note:
+
+cp command practiced in theory. Requires a real Linux terminal (like the Unhatched VM) to execute — GitHub browser editor is for file management only, not running commands.
+
+---

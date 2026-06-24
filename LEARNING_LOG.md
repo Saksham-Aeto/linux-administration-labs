@@ -156,3 +156,43 @@ Syntax: cp [OPTIONS] SOURCE DESTINATION
 cp command practiced in theory. Requires a real Linux terminal (like the Unhatched VM) to execute — GitHub browser editor is for file management only, not running commands.
 
 ---
+## Day 1 — Linux Unhatched: File Management (mv, rm)
+
+### Moving Files — `mv`
+
+The `mv` command moves a file from one location in the file system to another.
+
+**Syntax:**
+```bash
+mv SOURCE DESTINATION
+```
+
+**Example:**
+```bash
+mv people.csv Work
+```
+
+**Key points:**
+- Two things are required for this command to work:
+  1. **Source** — where the file is to be moved from
+  2. **Destination** — where the file is moved to
+- If the file is moved without specifying a new name, it retains its original name.
+- `mv` can move multiple files at once, as long as the final argument is the destination.
+
+> **Consider this:** Permissions can affect file management commands like `mv`. Moving a file requires **write** and **execute** permissions on both the origin and destination directories.
+
+---
+
+### Removing Files — `rm`
+
+The `rm` command deletes files and directories.
+
+**Syntax:**
+```bash
+rm [OPTIONS] [FILES]
+```
+
+**Key points:**
+- Deleted files/directories do **not** go to a "trash can" the way they do on a desktop — they are **permanently deleted** and cannot be recovered.
+
+> **Consider this:** Permissions can affect file management commands like `rm`. To delete a file within a directory, a user must have **write** and **execute** permission on that directory. Regular users typically only have this level of permission in their home directory and its subdirectories.

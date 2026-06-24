@@ -156,7 +156,7 @@ Syntax: cp [OPTIONS] SOURCE DESTINATION
 cp command practiced in theory. Requires a real Linux terminal (like the Unhatched VM) to execute — GitHub browser editor is for file management only, not running commands.
 
 ---
-## Day 1 — Linux Unhatched: File Management (mv, rm)
+## Date: 2026-06-24 | Lab: File Management (mv, rm)
 
 ### Moving Files — `mv`
 

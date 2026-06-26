@@ -3,4 +3,4 @@ A public log of my hands-on experience with Linux systems management, CLI admini
 
 * **`/runbook`**: Standard Operating Procedures (SOPs) and troubleshooting.
 * **`/scripts`**: Executable bash scripts and automation.
-* **`LEARNING_LOG.md`**: Daily CLI notes and error resolutions.
+* **`learning.md`**: Daily CLI notes and error resolutions.

@@ -77,3 +77,92 @@ sudo -u username command
 * `su` creates a new shell.
 * `sudo` executes a command with elevated privileges.
 * `sudo` is generally safer because it limits administrative access.
+# Administrative Access
+**Source:** Cisco NDG Linux Unhatched
+**Date Started:** 2026-07-04
+**Date Updated:** 2026-07-04
+
+---
+
+## Objective
+
+Learn how to update passwords and switch to the root account.
+
+---
+
+## Important Concepts
+
+- Users can change their own password.
+- Root can change any password.
+- `su` switches users.
+- `exit` leaves root.
+- `passwd -S` shows password status.
+
+---
+
+## Commands Learned
+
+### passwd
+
+```bash
+passwd
+```
+
+### Password Status
+
+```bash
+passwd -S [USER]
+```
+
+### Switch User
+
+```bash
+su root
+```
+
+### Change Another User's Password
+
+```bash
+passwd sysadmin
+```
+
+### Exit Root
+
+```bash
+exit
+```
+
+---
+
+## Key Takeaways
+
+- Root bypasses the need to know the current password.
+- `passwd -S` never shows the actual password.
+- Exit root when finished.
+
+---
+
+## Practice Commands
+
+```bash
+passwd
+passwd -S sysadmin
+su root
+passwd sysadmin
+exit
+```
+
+---
+
+## Notes
+
+- Passwords do not display while typing.
+- This topic connects directly to permissions and security.
+
+---
+
+## Questions for Revision
+
+- Difference between `su root` and `sudo`?
+- What do the password aging fields control?
+- How do you force a password change on next login?

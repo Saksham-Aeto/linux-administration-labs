@@ -36,7 +36,7 @@ ls -lah                     # List everything in detail
 pwd                         # Where am I?
 cd ~                        # Go home
 which python                # Find python location
-grep -i "error" log.txt     # Search case-insensitive
+grep -i "error" log.md     # Search case-insensitive
 man ls                      # Help for ls
 q                           # Exit man pages!
 ps aux | grep "process"     # Find a process

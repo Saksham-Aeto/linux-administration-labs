@@ -7,16 +7,15 @@
 **What:** Creates or removes a custom shortcut for terminal commands
 
 **Use:**
-```bash
+bash
 alias [NAME]='[COMMAND]'
 unalias [NAME]
-```
+
 
 **Note:** Aliases created in the terminal vanish when the session ends.
 
 **Examples:**
-```bash
+bash
 alias                    # View all currently active aliases
 alias ll='ls -l --color=auto'  # Creates 'll' shortcut
 unalias ll               # Removes the shortcut
-```

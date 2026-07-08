@@ -4,9 +4,19 @@
 
 ### Day 1 (Wed, July 8)
 
-Target:
+Target:🎯 Today's Deliverables
+By the end of today, aim to have:
+✅ 1.5–2 hours of Math completed
+✅ Google IT Support daily progress completed
+✅ William Shotts Chapter 6 started (or completed if it's short)
+✅ Permission commands practiced in Killercoda
+✅ hello.sh reviewed and expanded
+✅ Initial work on backup-script.sh
+✅ Documentation updated
+✅ Git commit and push completed
 
 Actual:
+✅ Maths (2 hr ) done 
 
 Blockers/Fails:
 

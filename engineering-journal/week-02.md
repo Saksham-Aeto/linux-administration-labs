@@ -36,7 +36,7 @@ Blockers/Fails:
 
 Target:
 
-Actual:
+Actual: Wasted
 
 Blockers/Fails:
 
@@ -46,7 +46,7 @@ Blockers/Fails:
 
 Target:
 
-Actual:
+Actual: wasted
 
 Blockers/Fails:
 
@@ -54,7 +54,7 @@ Blockers/Fails:
 
 ### Day 5 (Sun, July 12)
 
-Target:
+Target: cli ch-7,8 , process
 
 Actual:
 
@@ -64,9 +64,9 @@ Blockers/Fails:
 
 ### Day 6 (Mon, July 13)
 
-Target:
+Target:nothing it's holiday
 
-Actual:
+Actual: travel 
 
 Blockers/Fails:
 
